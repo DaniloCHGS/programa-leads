@@ -26,21 +26,19 @@
         // noData($values);
 
         $connection = connection();
-        var_dump($values);die();
-        $res = $connection->prepare("INSERT INTO leads(mes-solicitato, trinta-litros, cinquenta-litros, observacoes, total-venda, negocio-fechado, nome, telefone, cidade, bairro)VALUES(:mes, :trinta, :cinquenta, :obs, :total, :negocio, :nome, :telefone, :cidade, :bairro)");
-        
-        $res->bindValue(":mes", $values['mes-solicitato']);
-        $res->bindValue(":trinta", $values['trinta-litros']);
-        $res->bindValue(":cinquenta", $values['cinquenta-litros']);
+        $res = $connection->prepare("INSERT INTO leads(mes_solicitato, trinta_litros, cinquenta_litros, observacoes, total_venda, negocio_fechado, nome, telefone, cidade, bairro) VALUES (:mes, :trinta, :cinquenta, :obs, :total, :negocio, :nome, :telefone, :cidade, :bairro)");
+
+        $res->bindValue(":mes", $values['mes_solicitato']);
+        $res->bindValue(":trinta", $values['trinta_litros']);
+        $res->bindValue(":cinquenta", $values['cinquenta_litros']);
         $res->bindValue(":obs", $values['observacoes']);
-        $res->bindValue(":total", $values['total-venda']);
-        $res->bindValue(":negocio", $values['negocio-fechado']);
+        $res->bindValue(":total", $values['total_venda']);
+        $res->bindValue(":negocio", $values['negocio_fechado']);
         $res->bindValue(":nome", $values['nome']);
         $res->bindValue(":telefone", $values['telefone']);
         $res->bindValue(":cidade", $values['cidade']);
         $res->bindValue(":bairro", $values['bairro']);
         $res->execute();
-        var_dump($res);die();
     }
 
     function all(string $table){

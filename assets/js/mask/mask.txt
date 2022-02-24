@@ -1,0 +1,7 @@
+<!-- Mask -->
+<script src="/mask/jquery.mask.min.js"></script>
+<script src="/mask/autoNumeric-min.js"></script>
+<!-- Init js-->
+<script src="/mask/form-masks.init.js"></script>
+
+data-toggle="input-mask" data-mask-format="(00) 0000-00000"
